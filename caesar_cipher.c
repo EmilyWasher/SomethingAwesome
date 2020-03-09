@@ -7,6 +7,7 @@
 void encode_message(char* message, int key);
 
 int main (int argc, char* argv[]){
+    printf("Welcome to the Caesar cipher\n");
     int key = 0;
     char *message = malloc(sizeof(char) * BUF_SIZE);
    
