@@ -1,0 +1,6 @@
+6-3-20
+So I'm starting this diary a bit late, I have already done some work. I wrote a
+C code to encode a Caesar cipher today. Currently reads in from STDIN and prints
+to STDOUT. I am looking to change this so eventually I have a web application. 
+Will also work on decoding a Caesar cipher. Researched the different types of 
+ciphers

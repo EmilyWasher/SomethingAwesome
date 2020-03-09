@@ -1,0 +1,28 @@
+Caesar Cipher:
+    Also known as the shift cipher and is a type of substitution cipher. 
+    The user picks a key between 1 and 26 (although 26 is pointless) and the 
+    input message is shift across by that number.
+
+Atbash Cipher
+    Substitution Cipher in which the alphabet is reversed
+   
+Substituion Ciphers
+    The alphabet is scrambled, shifted or reversed so each letter corresponds to
+    a new letter in the substitution alphabet. When encoding each letter in the 
+    plain text message is replaced with a letter from the substitution alphabet.
+    Traditionally, punctuation was omitted to disguise word boundaries and avoid 
+    errors. The plain text can substituted as single letters, pairs of letters,
+    etc.
+
+Transposition Cipher
+    The letters in the plain text aren't changed but rather reordered in some 
+    way. For example, the message can be reversed.
+
+Vigenere Cipher
+    A series of Caesar ciphers are used to encrypt the message
+    Shieeeeeet
+
+DES - Data Encryption Standard
+
+
+Information sourced from Wikipedia
