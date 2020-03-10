@@ -1,15 +1,13 @@
 Caesar Cipher:
     Also known as the shift cipher and is a type of substitution cipher. 
     The user picks a key between 1 and 26 (although 26 is pointless) and the 
-    input message is shift across by that number.
+    input message is shift across by that number. Encoding and decoding have slightly different algorithms.
 
 Atbash Cipher
-    Substitution Cipher in which the alphabet is reversed
+    Substitution Cipher in which the alphabet is reversed. Encoding and decoding has the same algorithm.
    
 Substituion Ciphers
-    The alphabet is scrambled, shifted or reversed so each letter corresponds to
-    a new letter in the substitution alphabet. When encoding each letter in the 
-    plain text message is replaced with a letter from the substitution alphabet.
+    The alphabet is scrambled, shifted (Caesar) or reversed (Atbash) so each letter corresponds to a new letter in the substitution alphabet. When encoding each letter in the plain text message is replaced with a letter from the substitution alphabet.
     Traditionally, punctuation was omitted to disguise word boundaries and avoid 
     errors. The plain text can substituted as single letters, pairs of letters,
     etc.
@@ -26,4 +24,4 @@ DES - Data Encryption Standard
 
 RSA encrypt implementation???
 
-Information sourced from Wikipedia
+Information sourced from Wikipedia, plus notes to myself
