@@ -24,5 +24,6 @@ Vigenere Cipher
 
 DES - Data Encryption Standard
 
+RSA encrypt implementation???
 
 Information sourced from Wikipedia
