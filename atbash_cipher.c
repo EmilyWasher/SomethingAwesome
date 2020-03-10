@@ -20,6 +20,7 @@ int main (int argc, char* argv[]){
     free(message);
 }
 
+//Note: this function can be used to decrypt a message too.
 void encode_message(char* message){
     for (int i = 0; i < (int)strlen(message); i++){
         if ('a' <= message[i] && message[i] <= 'z'){

@@ -7,3 +7,6 @@ ciphers
 
 9-3-20
 Set up github
+
+10-3-20
+Made a working version of the Atbash cipher (reverse cipher). As it's premise is reversing the alphabet, the encrypting code is the same as the decrypting code. Also got a version of the substitution encrypting cipher working. It currently creates two arrays, a scrambled lower case and upper case alphabet and is based on the C rand() function and is seeded off the time. I also copied and modified the Caesar cipher code to create a program that can decipher text when given a key. 
