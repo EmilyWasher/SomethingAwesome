@@ -6,7 +6,7 @@
 #define CODE 10
 #define LC_to_UC 'a' - 'A'
 #define BUF 1024
-
+//balh
 void encode_message(char* message);
 void convert_to_lc (char code_word[]);
 void create_matrix(char matrix[ALPHA][ALPHA]);
