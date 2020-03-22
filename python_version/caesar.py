@@ -1,3 +1,4 @@
+# Read in the input, ensuring to sanitise the choice and key
 while True:
     choice = input("Do you want to encrypt (1) or decrypt (2): ")
     if choice == 1 or choice == 2:
@@ -19,6 +20,7 @@ while True:
         break
 
 
+# Function to encrypt the plain text to cipher text
 def encrypt(message, key):
     cipher = ''
     for c in message:
@@ -35,24 +37,25 @@ def encrypt(message, key):
     print "Encdoded message is: " + str(cipher)
 
 
+# Functio to decrypt provided ciphertext given a key
 def decrypt(message, key):
     cipher = ''
     for c in message:
         if c.isalpha():
-            cipher += chr(ord(c) - key)
+            num_c = ord(c) - key
+            if num_c < ord('a') and 'a' <= c < 'z':
+                num_c += 26
+            elif num_c > ord('Z') and 'A' <= c <= 'Z':
+                num_c += 26
+            cipher += chr(num_c)
         else:
             cipher += c
 
     print "The decoded message is: " + cipher
 
 
-while (choice >= 0):
-    if choice == 1:
-        encrypt(message, key)
-        choice = -1
-    elif choice == 2:
-        decrypt(message, key)
-        choice = -1
-    else:
-        print "Invalid option"
-        choice = input("Do you want to encrypt (1) or decrpyt (2): ")
+# Main body of the program
+if choice == 1:
+    encrypt(message, key)
+elif choice == 2:
+    decrypt(message, key)
