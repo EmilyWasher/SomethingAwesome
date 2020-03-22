@@ -1,16 +1,16 @@
 # Read in the input, ensuring to sanitise the choice and key
 while True:
-    choice = input("Do you want to encrypt (1) or decrypt (2): ")
+    choice = int(input("Do you want to encrypt (1) or decrypt (2): "))
     if choice == 1 or choice == 2:
         break
     else:
         print ("Invalid option. PLease select a different option.")
 
-message = raw_input("Enter message: ")
+message = input("Enter message: ")
 
 while True:
     try:
-        key = int(raw_input("Enter your key (<= 26): "))
+        key = int(input("Enter your key (<= 26): "))
         if key > 26 or key < 0:
             raise ValueError
     except ValueError:
@@ -34,7 +34,7 @@ def encrypt(message, key):
         else:
             cipher += c
 
-    print "Encdoded message is: " + str(cipher)
+    print("Encdoded message is: " + cipher)
 
 
 # Functio to decrypt provided ciphertext given a key
@@ -51,7 +51,7 @@ def decrypt(message, key):
         else:
             cipher += c
 
-    print "The decoded message is: " + cipher
+    print("The decoded message is: " + cipher)
 
 
 # Main body of the program
