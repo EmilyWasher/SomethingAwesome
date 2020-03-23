@@ -1,0 +1,79 @@
+#:kivy 1.11.1
+
+<Reverse>:
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 10
+
+		canvas.before:
+			Color:
+				rgba: (1,1,1,1)
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: .1
+			padding: 10
+			Button:
+				text: "Back to Home Page"
+				text_size: self.size
+				halign: 'center'
+				valign: 'middle'
+				size_hint_x: .2
+			Label:
+				text: "Reverse Cipher"
+				text_size: self.size
+				color: (0,0,0,1)
+				halign: 'center'
+				valign: 'middle'
+				size_hint_x: .8
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: .9
+			padding: 10
+			TextInput:
+				multiline: True
+			
+			BoxLayout:
+				orientation: 'vertical'
+				padding: 10
+				Button: 
+					text: 'Encrypt me!'				
+					on_press: print("Encrypted")
+				Button: 
+					text: 'Decrypt me!'
+					on_press: print("Decrypted")
+			TextInput:
+				multiline: True
+
+<HomePage>:
+
+	BoxLayout:
+		padding: 10
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'vertical'
+			BoxLayout:
+				canvas.after:
+					Color:
+						rgba: (1,1,1,1)
+					Ellipse:
+						pos: self.pos
+		BoxLayout:
+			padding: 10
+			orientation: 'vertical'
+			Button:
+				text: "Reverse Alphabet (Atbash)"
+				valign: 'middle'
+				halgin: 'right'
+				on_press: 
+
+			Button:
+				text: "Caesar"
+				valign: 'middle'
+			Button:
+				text: "Transposition"
+
+
