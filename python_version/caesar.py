@@ -35,6 +35,7 @@ def encrypt(message, key):
             cipher += c
 
     print("Encdoded message is: " + cipher)
+    return;
 
 
 # Functio to decrypt provided ciphertext given a key
@@ -52,6 +53,7 @@ def decrypt(message, key):
             cipher += c
 
     print("The decoded message is: " + cipher)
+    return;
 
 
 # Main body of the program
