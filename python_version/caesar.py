@@ -4,7 +4,7 @@ while True:
     if choice == 1 or choice == 2:
         break
     else:
-        print ("Invalid option. PLease select a different option.")
+        print("Invalid option. PLease select a different option.")
 
 message = input("Enter message: ")
 
@@ -35,25 +35,25 @@ def encrypt(message, key):
             cipher += c
 
     print("Encdoded message is: " + cipher)
-    return;
+    return
 
 
-# Functio to decrypt provided ciphertext given a key
+# Function to decrypt provided ciphertext given a key
 def decrypt(message, key):
     cipher = ''
     for c in message:
         if c.isalpha():
             num_c = ord(c) - key
-            if num_c < ord('a') and 'a' <= c < 'z':
+            if num_c < ord('a') and 'a' <= c <= 'z':
                 num_c += 26
-            elif num_c > ord('Z') and 'A' <= c <= 'Z':
+            elif num_c < ord('A') and 'A' <= c <= 'Z':
                 num_c += 26
             cipher += chr(num_c)
         else:
             cipher += c
 
     print("The decoded message is: " + cipher)
-    return;
+    return
 
 
 # Main body of the program
