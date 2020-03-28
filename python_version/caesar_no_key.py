@@ -1,15 +1,22 @@
+'''
+Currently does not work if:
+you mispell a word
+'''
+
 # Set up dictionary in Australian English
+import re
 import enchant
 d = enchant.Dict("en_AU")
+
+# Print welcome message and gain input from the user
 
 
 def get_input():
     print("Welcome to Caesar cipher.")
-    print("I will attempt to crack your secret message without a key")
+    print("I will attempt to crack your secret message without a key.")
     message = input("Enter the secret message: ")
     words = message.split()
     return words
-    # might'nt work if there are spelling errors
 
 
 # Function to decrypt provided ciphertext given a key
@@ -18,27 +25,46 @@ def decrypt(message, key):
     for c in message:
         if c.isalpha():
             num_c = ord(c) - key
-            if num_c < ord('a') and 'a' <= c < 'z':
+            if num_c < ord('a') and 'a' <= c <= 'z':
                 num_c += 26
-            elif num_c > ord('Z') and 'A' <= c <= 'Z':
+            elif num_c < ord('A') and 'A' <= c <= 'Z':
                 num_c += 26
             cipher += chr(num_c)
         else:
             cipher += c
-
     return cipher
+
+
+def is_word(word):
+    if word == '':
+        return True
+    if re.fullmatch(r"\d+\.\d*", word) is not None:
+        return True
+    new_word = re.sub("[^a-zA-Z']", '', word)
+    return d.check(new_word)
 
 
 def crack_caesar():
     words = get_input()
     key = 0
-    for w in words:
-        print(w)
-        '''new_w = decrypt(w, key)
-        if d.check(new_w) == True:
-            # do something
-        else:
-            # restart'''
+    plaintxt = []
+
+    while key < 26:
+        for w in words:
+            new_w = decrypt(w, key)
+            if is_word(new_w) == True:
+                plaintxt.append(new_w)
+                if w == words[-1]:
+                    print('The key was: ', key)
+                    seperator = ' '
+                    return seperator.join(plaintxt)
+            else:
+                plaintxt = []
+                key += 1
+                break
+
+    return "I couldn't crack your code :("
 
 
-crack_caesar()
+text = crack_caesar()
+print("Your message is :", text)
