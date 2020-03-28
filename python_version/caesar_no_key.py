@@ -4,12 +4,12 @@ d = enchant.Dict("en_AU")
 
 
 def get_input():
-    print ("Welcome to Caesar cipher.")
+    print("Welcome to Caesar cipher.")
     print("I will attempt to crack your secret message without a key")
     message = input("Enter the secret message: ")
     words = message.split()
-    return words;
-    #might'nt work if there are spelling errors
+    return words
+    # might'nt work if there are spelling errors
 
 
 # Function to decrypt provided ciphertext given a key
@@ -25,17 +25,20 @@ def decrypt(message, key):
             cipher += chr(num_c)
         else:
             cipher += c
-            
-     return cipher;
 
-  
+    return cipher
+
+
 def crack_caesar():
-    get_input()
+    words = get_input()
     key = 0
     for w in words:
-        print(word)
+        print(w)
         '''new_w = decrypt(w, key)
         if d.check(new_w) == True:
-            #do something
+            # do something
         else:
-            #restart'''
+            # restart'''
+
+
+crack_caesar()
