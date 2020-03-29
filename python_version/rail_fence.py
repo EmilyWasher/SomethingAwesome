@@ -25,7 +25,7 @@ while True:
 
 # Function to encrypt the plain text to cipher text
 def encrypt(message, key):
-    new_message = re.sub(' ', '', message)
+    new_message = re.sub("\W", '', message)
     rails = [""] * key
     direc = False  # direction we are traverse the array, false is down, true is up
     i = 0
@@ -42,13 +42,14 @@ def encrypt(message, key):
         else:
             i += 1
 
-    print("Your encrypted message is: ", ' '.join(rails))
+    print("Your encrypted message is: ", ''.join(rails))
 
     return
 
 
 # Function to decrypt provided ciphertext given a key
 def decrypt(message, key):
+    new_message = re.sub(' ', '', message)
 
     return
 
