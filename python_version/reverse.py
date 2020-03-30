@@ -18,5 +18,5 @@ message = get_input()
 word = rev_by_word(message)
 letter = rev_by_letter(message)
 
-print("BY word is: ", word)
+print("By word is: ", word)
 print("By letter is: ", letter)
