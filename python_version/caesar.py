@@ -1,5 +1,5 @@
 # Read in the input, ensuring to sanitise the choice and key
-while True:
+'''while True:
     choice = int(input("Do you want to encrypt (1) or decrypt (2): "))
     if choice == 1 or choice == 2:
         break
@@ -17,47 +17,51 @@ while True:
         print("Invalid key. Please enter a new key.")
         continue
     else:
-        break
+        break'''
+
+class Caesar:
+    def __init__(self, message, key):
+        self._message = message
+        self._key = key
+    
+    # Function to encrypt the plain text to cipher text
+    def encrypt(self):
+        cipher = ''
+        for c in self._message:
+            if c.isalpha():
+                num_c = ord(c) + self._key
+                if num_c > ord('z') and 'a' <= c <= 'z':
+                    num_c -= 26
+                elif num_c > ord('Z') and 'A' <= c <= 'Z':
+                    num_c -= 26
+                cipher += chr(num_c)
+            else:
+                cipher += c
+
+        print("Encdoded message is: " + cipher)
+        return cipher
 
 
-# Function to encrypt the plain text to cipher text
-def encrypt(message, key):
-    cipher = ''
-    for c in message:
-        if c.isalpha():
-            num_c = ord(c) + key
-            if num_c > ord('z') and 'a' <= c <= 'z':
-                num_c -= 26
-            elif num_c > ord('Z') and 'A' <= c <= 'Z':
-                num_c -= 26
-            cipher += chr(num_c)
-        else:
-            cipher += c
+    # Function to decrypt provided ciphertext given a key
+    def decrypt(self):
+        cipher = ''
+        for c in self._message:
+            if c.isalpha():
+                num_c = ord(c) - self._key
+                if num_c < ord('a') and 'a' <= c <= 'z':
+                    num_c += 26
+                elif num_c < ord('A') and 'A' <= c <= 'Z':
+                    num_c += 26
+                cipher += chr(num_c)
+            else:
+                cipher += c
 
-    print("Encdoded message is: " + cipher)
-    return
+        print("The decoded message is: " + cipher)
+        return cipher
 
-
-# Function to decrypt provided ciphertext given a key
-def decrypt(message, key):
-    cipher = ''
-    for c in message:
-        if c.isalpha():
-            num_c = ord(c) - key
-            if num_c < ord('a') and 'a' <= c <= 'z':
-                num_c += 26
-            elif num_c < ord('A') and 'A' <= c <= 'Z':
-                num_c += 26
-            cipher += chr(num_c)
-        else:
-            cipher += c
-
-    print("The decoded message is: " + cipher)
-    return
-
-
+'''
 # Main body of the program
 if choice == 1:
     encrypt(message, key)
 elif choice == 2:
-    decrypt(message, key)
+    decrypt(message, key)'''
