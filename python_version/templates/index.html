@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-		    <h4>Pick a cipher from below</h4>
+		    <h3>Pick a cipher from below</h3>
+		    <h4>Substitution Ciphers</h4>
 		    <ul>
 		        <button> <a href="{{url_for('caesar')}}">Caesar Cipher</a></button>
+		    </ul>
+		    <h4>Transposition Ciphers</h4>
+		        <a href="{{ url_for('reverse') }}">he</a>
+		    <ul>
 		    </ul>
 		</div>
 {% endblock %}

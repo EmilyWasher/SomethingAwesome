@@ -4,6 +4,7 @@ from caesar import Caesar
 
 
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template("index.html")
     
@@ -13,5 +14,13 @@ def caesar():
         key = int(request.form['key'])
         message = request.form['message']
         caesar = Caesar(message, key)
-        new_mess = caesar.encrypt()
+        if request.form['option'] == "Encrypt":
+            print ('hi')
+        new_message = caesar.encrypt()
+        return render_template("caesar.html", new_message=new_message)
     return render_template("caesar.html")
+   
+@app.route('/reverse_cipher')
+def reverse():
+    return render_template("reverse.html")
+

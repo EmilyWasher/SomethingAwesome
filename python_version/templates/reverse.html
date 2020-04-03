@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-    <h1>Caesar Cipher with a key</h1>
+    <h1>Reverse Cipher</h1>
 </div>
 <div>
     <form id="encryptform" method = "POST">
@@ -9,8 +9,6 @@
 		    <label>Enter your message here</label><br>
 		    <textarea name="message" rows="10" cols="50" autofocus form="encryptform">
 		    </textarea><br>
-		    <label>Enter your key here</label><br>
-		    <input type="number" name="key" value="{{key}}" placeholder="Enter key">
 		</div>
 		<div style="margin: 10px 0px">
 		    <input type="radio" name="option" value="encrypt">Encrypt
