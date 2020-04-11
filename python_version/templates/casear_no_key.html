@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h1>Caesar Cipher without a key</h1>
+</div>
+<div>
+    <form id="encryptform" method = "POST">
+		<div>
+		    <label>Enter your message here</label><br>
+		    <textarea name="message" rows="10" cols="50" autofocus form="encryptform">
+		    </textarea>
+		</div>
+		<div style="margin: 10px 0px">
+		    <input type="radio" name="option" value="encrypt">Encrypt
+		    <input type="radio" name="option" value="decrypt">Decrypt
+		</div>
+	    <div style="margin: 10px 0px">
+			<button type="submit">Submit</button>
+		</div>
+		<div>
+            <textarea id="new_message" rows="10" cols="50" name="new_message" value="{{new_message}}" form="encryptform">
+            </textarea>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a href="{{url_for('index')}}">Back to main menu</a>
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 from server import app
 from flask import request, render_template, redirect, url_for
-from caesar import Caesar
+from ciphers.caesar import Caesar
 
 
 @app.route('/')
@@ -19,8 +19,13 @@ def caesar():
         new_message = caesar.encrypt()
         return render_template("caesar.html", new_message=new_message)
     return render_template("caesar.html")
-   
+
+
 @app.route('/reverse_cipher')
 def reverse():
     return render_template("reverse.html")
 
+
+@app.route('/caesar_cipher_no_key')
+def caesar_no_key():
+    return render_template("caesar_no_key.html")
