@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-    <h1>Caesar Cipher without a key</h1>
+    <h1>Decrypt Caesar Cipher without a key</h1>
 </div>
 <div>
     <form id="encryptform" method = "POST">
@@ -10,16 +10,14 @@
 		    <textarea name="message" rows="10" cols="50" autofocus form="encryptform">
 		    </textarea>
 		</div>
-		<div style="margin: 10px 0px">
-		    <input type="radio" name="option" value="encrypt">Encrypt
-		    <input type="radio" name="option" value="decrypt">Decrypt
-		</div>
 	    <div style="margin: 10px 0px">
-			<button type="submit">Submit</button>
+			<button type="submit">Decrypt</button>
 		</div>
 		<div>
-            <textarea id="new_message" rows="10" cols="50" name="new_message" value="{{new_message}}" form="encryptform">
-            </textarea>
+            {%  if new_message != NULL %}
+            	<label>Your new message is:</label><br>
+            	<p id="new_message" name="new_message" value="{{new_message}}" form="encryptform">{{new_message}}</p>
+            {%  endif  %}
         </div>
     </form>
 </div>

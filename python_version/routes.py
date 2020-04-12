@@ -1,12 +1,18 @@
 from server import app
 from flask import request, render_template, redirect, url_for
 from ciphers.caesar import Caesar
+from ciphers.caesar_no_key import Caesar_no_key
+from ciphers.reverse import Reverse
 
+import re
+import enchant
+d = enchant.Dict("en_AU")
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template("index.html")
+
     
 @app.route('/caesar_cipher', methods = ['POST', 'GET'])
 def caesar():
@@ -14,18 +20,39 @@ def caesar():
         key = int(request.form['key'])
         message = request.form['message']
         caesar = Caesar(message, key)
-        if request.form['option'] == "Encrypt":
-            print ('hi')
-        new_message = caesar.encrypt()
+        user_option = request.form['option']
+
+        if user_option == 'encrypt':
+            new_message = caesar.encrypt()
+        elif user_option == 'decrypt':
+        	new_message = caesar.decrypt()
         return render_template("caesar.html", new_message=new_message)
+
     return render_template("caesar.html")
 
 
-@app.route('/reverse_cipher')
+@app.route('/reverse_cipher', methods = ['POST', 'GET'])
 def reverse():
-    return render_template("reverse.html")
+	if request.method == 'POST':
+		message = request.form['message']
+		user_option = request.form['option']
+		reverse =Reverse(message)
+
+		if user_option == 'by_word':
+			new_message = reverse.rev_by_word(message)
+		elif user_option == 'by_letter':
+			new_message = reverse.rev_by_letter(message)
+		return render_template('reverse.html', new_message=new_message)
+		
+	return render_template("reverse.html")
 
 
-@app.route('/caesar_cipher_no_key')
+@app.route('/caesar_cipher_no_key', methods = ['POST', 'GET'])
 def caesar_no_key():
-    return render_template("caesar_no_key.html")
+	if request.method == 'POST':
+		message = request.form['message']
+		print(message)
+		caesar = Caesar_no_key(message)
+		new_message = caesar.crack_caesar()
+		return render_template('caesar_no_key.html', new_message=new_message)
+	return render_template("caesar_no_key.html")

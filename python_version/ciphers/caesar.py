@@ -37,8 +37,7 @@ class Caesar:
                 cipher += chr(num_c)
             else:
                 cipher += c
-
-        print("Encdoded message is: " + cipher)
+        #print("Encoded message is: " + cipher)
         return cipher
 
 
@@ -55,8 +54,7 @@ class Caesar:
                 cipher += chr(num_c)
             else:
                 cipher += c
-
-        print("The decoded message is: " + cipher)
+       # print("The decoded message is: " + cipher)
         return cipher
 
 '''
