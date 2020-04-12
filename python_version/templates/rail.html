@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h1>Rail Fence</h1>
+</div>
+<div>
+    <form id="encryptform" method = "POST">
+		<div>
+		    <label>Enter your message here</label><br>
+		    <textarea name="message" rows="10" cols="50" autofocus form="encryptform">
+		    </textarea><br>
+		    <label>Enter number of rails</label><br>
+		    <input type="number" min="2" name="rails" value="{{rails}}" placeholder="Number of Rails">
+		</div>
+		<div style="margin: 10px 0px">
+		    <input type="radio" name="option" value="encrypt">Encrypt
+		    <input type="radio" name="option" value="decrypt">Decrypt
+		</div>
+	    <div style="margin: 10px 0px">
+			<button type="submit">Submit</button>
+		</div>
+		<div>
+            {%  if new_message != NULL %}
+            	<label>Your new message is</label><br>
+            	<p id="new_message" name="new_message" value="{{new_message}}" form="encryptform">{{new_message}}</p>
+            {%  endif  %}
+        </div>
+    </form>
+</div>
+
+<div>
+    <a href="{{url_for('index')}}">Back to main menu</a>
+</div>
+{% endblock %}
