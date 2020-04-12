@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-		    <h3>Pick a cipher from below</h3>
-		    <h4>Substitution Ciphers</h4>
+		    <h3>Pick a cipher from below</h3><br>
+		    <h4>Substitution Ciphers</h4><br>
 		    <ul>
 		        <button> <a href="{{url_for('caesar')}}">Caesar Cipher</a></button>
 		        <button> <a href="{{url_for('caesar_no_key')}}">Caesar Cipher w/out key</a></button>
-		    </ul>
-		    <h4>Transposition Ciphers</h4>
+		        <button> <a href="{{url_for('reverse_alpha')}}">Reverse Alphabet Cipher</a></button>
+		    </ul><br>
+		    <h4>Transposition Ciphers</h4><br>
 		    <ul>
 		    	<button><a href="{{ url_for('reverse') }}">Reverse Cipher</a></button>
 		    </ul>

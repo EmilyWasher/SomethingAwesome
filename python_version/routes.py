@@ -3,6 +3,7 @@ from flask import request, render_template, redirect, url_for
 from ciphers.caesar import Caesar
 from ciphers.caesar_no_key import Caesar_no_key
 from ciphers.reverse import Reverse
+from ciphers.atbash import Atbash
 
 import re
 import enchant
@@ -31,6 +32,30 @@ def caesar():
     return render_template("caesar.html")
 
 
+@app.route('/caesar_cipher_no_key', methods = ['POST', 'GET'])
+def caesar_no_key():
+	if request.method == 'POST':
+		message = request.form['message']
+		print(message)
+		caesar = Caesar_no_key(message)
+		new_message = caesar.crack_caesar()
+		return render_template('caesar_no_key.html', new_message=new_message)
+	return render_template("caesar_no_key.html")
+
+
+@app.route('/reverse_alpha_cipher', methods = ['POST', 'GET'])
+def reverse_alpha():
+	if request.method == 'POST':
+		message = request.form['message']
+		reverse =Atbash(message)
+		new_message = reverse.encode()
+
+		return render_template('atbash.html', new_message=new_message)
+		
+	return render_template("atbash.html")
+
+
+
 @app.route('/reverse_cipher', methods = ['POST', 'GET'])
 def reverse():
 	if request.method == 'POST':
@@ -45,14 +70,3 @@ def reverse():
 		return render_template('reverse.html', new_message=new_message)
 		
 	return render_template("reverse.html")
-
-
-@app.route('/caesar_cipher_no_key', methods = ['POST', 'GET'])
-def caesar_no_key():
-	if request.method == 'POST':
-		message = request.form['message']
-		print(message)
-		caesar = Caesar_no_key(message)
-		new_message = caesar.crack_caesar()
-		return render_template('caesar_no_key.html', new_message=new_message)
-	return render_template("caesar_no_key.html")
