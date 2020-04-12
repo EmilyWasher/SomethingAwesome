@@ -10,7 +10,7 @@
 		    <textarea name="message" rows="10" cols="50" autofocus form="encryptform">
 		    </textarea><br>
 		    <label>Enter your key here</label><br>
-		    <input type="number" name="key" value="{{key}}" placeholder="Enter key">
+		    <input type="number" min="1" max="26" name="key" value="{{key}}" placeholder="Enter key">
 		</div>
 		<div style="margin: 10px 0px">
 		    <input type="radio" name="option" value="encrypt">Encrypt
