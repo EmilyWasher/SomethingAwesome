@@ -7,9 +7,9 @@ class Atbash:
 		new_message = ''
 		for c in self._message:
 			if c.isupper():
-				new_message = new_message + chr(ord('Z') + ord('A') - ord(c))
+				new_message += chr(ord('Z') + ord('A') - ord(c))
 			elif c.islower():
-				new_message = new_message + chr(ord('z') + ord('a') - ord(c))
+				new_message += chr(ord('z') + ord('a') - ord(c))
 			else:
-				new_message = new_message + c
+				new_message += c
 		return new_message

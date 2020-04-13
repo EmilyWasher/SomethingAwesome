@@ -5,9 +5,12 @@ from ciphers.caesar_no_key import Caesar_no_key
 from ciphers.reverse import Reverse
 from ciphers.atbash import Atbash
 from ciphers.rail_fence import Rail_fence
+from ciphers. scramble import Scramble
 
 import re
 import enchant
+import string
+import random
 d = enchant.Dict("en_AU")
 
 
@@ -55,6 +58,28 @@ def reverse_alpha():
         return render_template('atbash.html', new_message=new_message)
 
     return render_template("atbash.html")
+
+
+@app.route('/scramble_cipher', methods=['POST', 'GET'])
+def scramble():
+    if request.method == 'POST':
+        key = request.form.get("key")
+        message = request.form['message']
+        user_option = request.form['option']
+
+        if not key:
+            scramble = Scramble(message, None) 
+        else:
+            scramble = Scramble(message, key)  
+            
+        if user_option == 'encrypt':
+            new_message = scramble.encrypt()
+        elif user_option == 'decrypt':
+            new_message = scramble.decrypt()
+           
+        return render_template("scramble.html", new_message=new_message, new_key=scramble.get_key())
+
+    return render_template("scramble.html")
 
 
 @app.route('/reverse_cipher', methods=['POST', 'GET'])
