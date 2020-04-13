@@ -103,6 +103,7 @@ def rail_fence():
     if request.method == 'POST':
         rails = int(request.form['rails'])
         message = request.form['message']
+        #message.strip()
         rail_fence = Rail_fence(message, rails)
         user_option = request.form['option']
 
