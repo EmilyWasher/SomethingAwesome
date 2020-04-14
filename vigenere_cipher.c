@@ -9,6 +9,7 @@
 void encode_message(char* message, int code[], int code_len, char matrix[ALPHA][ALPHA]);
 void convert_to_num (char code_word[], int code[]);
 void create_matrix(char matrix[ALPHA][ALPHA]);
+void decode_message(char* message, int code[], int code_len, char matrix[ALPHA][ALPHA]);
 
 int main (int argc, char* argv[]){
 	char matrix[ALPHA][ALPHA];
@@ -25,15 +26,27 @@ int main (int argc, char* argv[]){
 
 	convert_to_num(code_word, code);
 
-	printf("Enter your message to encode: ");
-	
-	while (fgets(message, BUF, stdin) != NULL){
-		encode_message(message, code, code_length, matrix);
-		if (message[strlen(message) - 1] == '\n') break;
+	int option = 0;
+	printf("Would you like to encode (1) or decode (2) you message? ");
+	scanf("%d", &option);
+	getchar();
+
+	if (option == 1){
+		printf("Enter your message to encode: ");
+		
+		while (fgets(message, BUF, stdin) != NULL){
+			encode_message(message, code, code_length, matrix);
+			if (message[strlen(message) - 1] == '\n') break;
+		}	
+	} else if (option == 2){
+		printf("Enter your message to decode: ");
+		
+		while (fgets(message, BUF, stdin) != NULL){
+			decode_message(message, code, code_length, matrix);
+			if (message[strlen(message) - 1] == '\n') break;
+		}
 	}
-
-	printf("Your endcoded mesage is: %s", message);
-
+	
 	free(message);
 
 	return 0;
@@ -50,11 +63,31 @@ void encode_message(char* message, int code[], int code_len, char matrix[ALPHA][
             is_letter++;
 	    }
 	}
-	printf("%s\n", message);
+	printf("Your endcoded mesage is: %s", message);
 }
 
 void decode_message(char* message, int code[], int code_len, char matrix[ALPHA][ALPHA]){
-	//for (int i = 0; i < strlen(message))
+	int count = 0;
+	for (int i = 0; i < strlen(message); i++){
+		if ('a' <= message[i] && message[i] <='z'){
+			for (int j = 0; j < ALPHA; j++){
+				if (message[i] == matrix[code[count % code_len]][j]){
+					message[i] = j + 'a';
+					break;
+				}
+			}
+            count++;
+	    } else if ('A' <= message[i] && message[i] <= 'Z'){
+		    for (int j = 0; j < ALPHA; j++){
+				if (message[i] == (matrix[code[count % code_len]][j] - 'a' + 'A')){
+					message[i] = j + 'A';
+					break;
+				}
+			}
+			count++;
+	    }
+	}
+	printf("Your decoded message is: %s", message);
 }
 
 void convert_to_num (char code_word[], int code[]){	
