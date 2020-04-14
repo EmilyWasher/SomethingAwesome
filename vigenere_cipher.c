@@ -50,6 +50,11 @@ void encode_message(char* message, int code[], int code_len, char matrix[ALPHA][
             is_letter++;
 	    }
 	}
+	printf("%s\n", message);
+}
+
+void decode_message(char* message, int code[], int code_len, char matrix[ALPHA][ALPHA]){
+	//for (int i = 0; i < strlen(message))
 }
 
 void convert_to_num (char code_word[], int code[]){	

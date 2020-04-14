@@ -1,27 +1,57 @@
-Caesar Cipher:
-    Also known as the shift cipher and is a type of substitution cipher. 
-    The user picks a key between 1 and 26 (although 26 is pointless) and the 
-    input message is shift across by that number. Encoding and decoding have slightly different algorithms.
-
-Atbash Cipher
-    Substitution Cipher in which the alphabet is reversed. Encoding and decoding has the same algorithm.
-   
 Substituion Ciphers
     The alphabet is scrambled, shifted (Caesar) or reversed (Atbash) so each letter corresponds to a new letter in the substitution alphabet. When encoding each letter in the plain text message is replaced with a letter from the substitution alphabet.
     Traditionally, punctuation was omitted to disguise word boundaries and avoid 
     errors. The plain text can substituted as single letters, pairs of letters,
     etc.
 
+    Caesar Cipher
+        Also known as the shift cipher and is a type of substitution cipher. 
+        The user picks a key between 1 and 26 (although 26 is pointless) and the 
+        input message is shift across by that number. Encoding and decoding have slightly different algorithms.
+
+    Atbash Cipher
+        Substitution Cipher in which the alphabet is reversed. Encoding and decoding has the same algorithm. Doesn't require a key and is a stream cipher.
+
+    Vigenere Cipher
+        A series of Caesar ciphers are used to encrypt the message
+   
+
 Transposition Cipher
     The letters in the plain text aren't changed but rather reordered in some 
     way. For example, the message can be reversed.
 
-Vigenere Cipher
-    A series of Caesar ciphers are used to encrypt the message
-    Shieeeeeet
+    Reverse by Word
+        The sentence is reversed by word but the letters of the word stay in the same order.
+        Not very useful by itself.
+
+    Reverse by Letter
+        The order of characters in a sentence is reversed.
+
+    Rail Fence Cipher
+        Given a number of rails, e.g. 3. The message is broken up into that number of rails. For example, given the message='hellothere' and rails = 3, it would be borken up to look like this:
+        h---o---r-
+        -e-l-t-e-e
+        --l---h---
+        Then the characters are recorded 
+
 
 DES - Data Encryption Standard
+A type of block cipher
+It takes a string of plaintext of fixed length and converts it to a cipher text of the same length.
+The length of the string is 64bits
+block size = 64bits
+uses a 64 bit key (but only 56 bits are used)
+the other 8 bits are used for checking parity
+i.e. the key is stored in 8 bits and the 8th bit is used for error checking 's of odd parity'
+decryption works the same way but the leys are used in the reverse order
 
-RSA encrypt implementation???
+Copied from Wikipedia
+The ⊕ symbol denotes the exclusive-OR (XOR) operation. 
+The F-function scrambles half a block together with some of the key. 
+The output from the F-function is then combined with the other half of the block, 
+and the halves are swapped before the next round. 
+After the final round, the halves are swapped; 
+this is a feature of the Feistel structure which makes encryption and 
+decryption similar processes.
 
 Information sourced from Wikipedia, plus notes to myself
