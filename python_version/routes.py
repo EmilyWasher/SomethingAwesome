@@ -68,15 +68,15 @@ def scramble():
         user_option = request.form['option']
 
         if not key:
-            scramble = Scramble(message, None) 
+            scramble = Scramble(message, None)
         else:
-            scramble = Scramble(message, key)  
-            
+            scramble = Scramble(message, key)
+
         if user_option == 'encrypt':
             new_message = scramble.encrypt()
         elif user_option == 'decrypt':
             new_message = scramble.decrypt()
-           
+
         return render_template("scramble.html", new_message=new_message, new_key=scramble.get_key())
 
     return render_template("scramble.html")
@@ -103,7 +103,7 @@ def rail_fence():
     if request.method == 'POST':
         rails = int(request.form['rails'])
         message = request.form['message']
-        #message.strip()
+        # message.strip()
         rail_fence = Rail_fence(message, rails)
         user_option = request.form['option']
 
